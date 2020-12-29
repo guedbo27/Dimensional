@@ -6,9 +6,8 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
-        LOD 100
-        Cull Off
+        Tags { "RenderType"="Opaque" "Queue"="Geometry+2000"}
+
 
         Pass
         {
@@ -50,5 +49,5 @@
             ENDCG
         }
     }
-    Fallback "Standard" // for shadows
+    //Fallback "Standard" // for shadows
 }
