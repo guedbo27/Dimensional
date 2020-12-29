@@ -22,9 +22,18 @@ public class Enemies : MonoBehaviour
         //anim = GetComponent<Animator>();
     }
 
-    void shoot()
+    void Shoot()
     {
 
     }
 
+    void RecieveDamage()
+    {
+
+    }
+
+    void Die()
+    {
+
+    }
 }
