@@ -18,7 +18,8 @@ public class Weapon : MonoBehaviour
 
     public Type type;
     public float recoil;
-    public float dmg;
+    public float baseDmg;
+    float dmg;
     public int upgradeLvl = 1;
 
     public virtual void Shoot()

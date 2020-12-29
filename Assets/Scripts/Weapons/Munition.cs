@@ -5,6 +5,8 @@ using UnityEngine;
 public class Munition : MonoBehaviour
 {
     public float speed;
+    [HideInInspector]
+    public float dmg;
     private void Start()
     {
         Destroy(gameObject, 10);
