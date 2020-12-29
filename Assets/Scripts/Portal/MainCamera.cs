@@ -10,6 +10,7 @@ public class MainCamera : MonoBehaviour {
         foreach(Portal portal in FindObjectsOfType<Portal>())
         {
             portals.Add(portal);
+            GetComponent<Camera>().opaqueSortMode = UnityEngine.Rendering.OpaqueSortMode.NoDistanceSort;
         }
     }
 

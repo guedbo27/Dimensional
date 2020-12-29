@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForSeconds(2);
             }
             yield return null;
+
+
         }
 
         Destroy(location.gameObject);

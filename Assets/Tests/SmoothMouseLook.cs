@@ -32,6 +32,12 @@ public class SmoothMouseLook : MonoBehaviour
 
     void Update()
     {
+        Vector3 moveDirection;
+        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        moveDirection = transform.TransformDirection(moveDirection);
+
+        transform.position += moveDirection * 0.1f;
+
         if (Input.GetKeyDown(KeyCode.Escape)) this.enabled = false;
 
         if (axes == RotationAxes.MouseXAndY)
