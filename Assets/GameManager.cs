@@ -73,25 +73,23 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Shooting());
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * 25);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawLine(transform.position, transform.position + transform.forward * 25);
+    //}
 
-    public Transform CheckPortalRaycast()
-    {
-        RaycastHit hit;
-        Ray ray = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(ray, out hit, 25, layer))
-        {
-            return hit.transform.GetComponent<Portal>().linkedPortal.transform.GetChild(0);
-        }
-        else
-        {
-            return null;
-        }
-
-
-    }
+    //public Transform CheckPortalRaycast()
+    //{
+    //    RaycastHit hit;
+    //    Ray ray = new Ray(transform.position, transform.forward);
+    //    if (Physics.Raycast(ray, out hit, 25, layer))
+    //    {
+    //        return hit.transform.GetComponent<Portal>().linkedPortal.transform.GetChild(0);
+    //    }
+    //    else
+    //    {
+    //        return null;
+    //    }
+    //}
 }
