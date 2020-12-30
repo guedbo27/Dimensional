@@ -20,4 +20,14 @@ public class Munition : MonoBehaviour
     {
 
     }
+
+    public virtual void Impact(Enemies enemy)
+    {
+        enemy.RecieveDamage(dmg);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy")) Impact(other.GetComponent<Enemies>());
+    }
 }
