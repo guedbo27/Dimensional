@@ -23,6 +23,7 @@ public class Enemies : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        shootPoint = transform.Find("ShootPoint");
         gameObject.tag = "Enemy";
     }
 
@@ -37,8 +38,8 @@ public class Enemies : MonoBehaviour
         Quaternion _lookRotation;
 
         Transform rotator = transform.GetChild(0);
-
         float time = 0;
+        //Girar al objectivo
         while(time < 1)
         {
             //find the vector pointing from our position to the target
@@ -49,13 +50,30 @@ public class Enemies : MonoBehaviour
 
             //rotate us over time according to speed until we are in the required rotation
             rotator.rotation = Quaternion.Slerp(rotator.rotation, _lookRotation, time);
-            time += .02f;
+            time += .01f;
+            Debug.Log(time);
             yield return null;
         }
 
-        anim.Play("Shoot", -1);
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(1).length);
+        anim.Play("Shoot", -1, 0);
 
+        //Esperar a que la anim termine
+        float time2 = 0;
+        while (anim.GetCurrentAnimatorStateInfo(1).length > time2)
+        {
+            //find the vector pointing from our position to the target
+            _direction = (Target - transform.position).normalized;
+
+            //create the rotation we need to be in to look at the target
+            _lookRotation = Quaternion.LookRotation(_direction);
+
+            //rotate us over time according to speed until we are in the required rotation
+            rotator.rotation = Quaternion.Slerp(rotator.rotation, _lookRotation, time);
+            time2 += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+
+        //Volver a estado normal
         while (time > 0)
         {
             //find the vector pointing from our position to the target
@@ -69,13 +87,11 @@ public class Enemies : MonoBehaviour
             time -= .02f;
             yield return null;
         }
-        yield return new WaitForSeconds(3);
-        StartCoroutine(RotateToCamera(point.position));
     }
 
     public void Shoot()
     {
-
+        Instantiate(shootBullet, shootPoint.position, shootPoint.rotation);
     }
 
     public void RecieveDamage(float dmg)
@@ -83,8 +99,9 @@ public class Enemies : MonoBehaviour
         life -= dmg;
     }
 
-    void Die()
+    public void Die()
     {
-
+        anim.SetBool("Stop", true);
+        Destroy(gameObject, anim.GetCurrentAnimatorStateInfo(1).length + 3);
     }
 }
