@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Shooting()
     {
-        while (Input.touches[0].phase == TouchPhase.Began && Input.touches[0].position.x > Screen.width/2)
+        while (Input.touchCount == 0)
         //while(!Input.GetMouseButtonDown(0))
         {
             yield return null;
