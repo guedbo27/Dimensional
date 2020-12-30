@@ -51,7 +51,6 @@ public class Enemies : MonoBehaviour
             //rotate us over time according to speed until we are in the required rotation
             rotator.rotation = Quaternion.Slerp(rotator.rotation, _lookRotation, time);
             time += .01f;
-            Debug.Log(time);
             yield return null;
         }
 
