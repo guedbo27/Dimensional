@@ -60,14 +60,13 @@ public class GameManager : MonoBehaviour
 
     void OnGUI()
     {
-        Touch touch = Input.GetTouch(0);
+        Touch touch = Input.touches[0];
         if (touch.position.x > Screen.width / 2) print("working as intended");
     }
 
     IEnumerator Shooting()
     {
-        Touch touch = Input.GetTouch(0);
-        while (touch.position.x > Screen.width/2)
+        while (Input.touches[0].phase == TouchPhase.Began && Input.touches[0].position.x > Screen.width/2)
         //while(!Input.GetMouseButtonDown(0))
         {
             yield return null;
