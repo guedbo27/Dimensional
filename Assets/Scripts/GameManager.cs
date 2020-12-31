@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     Weapon[] weapons = new Weapon[5];
     int selectedWeapon = 0;
+    Coroutine shoot;
 
 
     private void Start()
@@ -27,6 +29,10 @@ public class GameManager : MonoBehaviour
             weapons[(int)_weapon.type] = _weapon;
         }
 
+        foreach(Portal portal in exitPortals)
+        {
+            portal.tag = "Portal";
+        }
         StartCoroutine(BeginGame());
     }
     //ColocarPortales
@@ -35,7 +41,7 @@ public class GameManager : MonoBehaviour
         MainCamera camera = GetComponent<MainCamera>();
         Transform location = camera.transform.GetChild(1);
         int _a = 4;
-        //Input for compTesting
+
         while (_a > 0)
         {
             //if (Input.touchCount > 0)
@@ -46,6 +52,7 @@ public class GameManager : MonoBehaviour
                 _portal.linkedPortal = exitPortals[_a - 1];
                 camera.portals.Add(_portal);
                 exitPortals[_a - 1].linkedPortal = _portal;
+                exitPortals[_a - 1].transform.parent.GetComponent<PortalManager>().lifeBar = _portal.transform.GetChild(2).GetChild(0).GetComponent<Image>();
                 _a--;
                 yield return new WaitForSeconds(2);
             }
@@ -55,14 +62,14 @@ public class GameManager : MonoBehaviour
         }
 
         Destroy(location.gameObject);
-        StartCoroutine(Shooting());
+        shoot = StartCoroutine(Shooting());
     }
 
 
     IEnumerator Shooting()
     {
-        bool shoot = false;
-        while (!shoot)
+        bool _shoot = false;
+        while (!_shoot)
         {
             //if (Input.touchCount > 0)
             //{
@@ -70,7 +77,7 @@ public class GameManager : MonoBehaviour
             //    if (touch.position.x > Screen.width / 2) shoot = true;
             //    //else aspiración
             //}
-            if (Input.GetMouseButton(0)) shoot = true;
+            if (Input.GetMouseButton(0)) _shoot = true;
             
             yield return null;
         }
@@ -78,26 +85,14 @@ public class GameManager : MonoBehaviour
         weapons[selectedWeapon].Shoot();
 
         yield return new WaitForSeconds(weapons[selectedWeapon].recoil);
-        StartCoroutine(Shooting());
+        shoot = StartCoroutine(Shooting());
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawLine(transform.position, transform.position + transform.forward * 25);
-    //}
+    public void Stun()
+    {
+        //StopCoroutine(shoot);
+        Debug.Log("Impact!");
 
-    //public Transform CheckPortalRaycast()
-    //{
-    //    RaycastHit hit;
-    //    Ray ray = new Ray(transform.position, transform.forward);
-    //    if (Physics.Raycast(ray, out hit, 25, layer))
-    //    {
-    //        return hit.transform.GetComponent<Portal>().linkedPortal.transform.GetChild(0);
-    //    }
-    //    else
-    //    {
-    //        return null;
-    //    }
-    //}
+        //Aqui va selección de stun
+    }
 }

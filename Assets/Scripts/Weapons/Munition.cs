@@ -9,7 +9,7 @@ public class Munition : MonoBehaviour
     public float dmg;
     private void Start()
     {
-        Destroy(gameObject, 10);
+        Destroy(gameObject, 7);
     }
     private void FixedUpdate()
     {
@@ -28,7 +28,8 @@ public class Munition : MonoBehaviour
 
     protected void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy")) Impact(other.GetComponent<Enemies>());
+        if (other.CompareTag("Enemy")) { Impact(other.GetComponent<Enemies>()); Destroy(gameObject); }
         if (other.gameObject.layer == LayerMask.NameToLayer("Portal")) SimplifiedTeleport.Teleport(transform, other.transform, other.GetComponent<Portal>().linkedPortal.transform);
+        if (other.CompareTag("Obstacle")) Destroy(gameObject);
     }
 }

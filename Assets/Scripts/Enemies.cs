@@ -13,23 +13,19 @@ public class Enemies : MonoBehaviour
 
     public float life;
     public float dmg;
+    //[HideInInspector]
     public Transform point;
-    Transform shootPoint;
+    public Transform shootPoint;
     public GameObject shootBullet;
-
 
     Animator anim;
     public float fireRate;
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
-        shootPoint = transform.Find("ShootPoint");
-        gameObject.tag = "Enemy";
-    }
 
     private void Start()
     {
-        StartCoroutine(RotateToCamera(point.position));
+        anim = GetComponent<Animator>();
+        gameObject.tag = "Enemy";
+        StartCoroutine(RotateToCamera(point.position + Vector3.up ));
     }
 
     IEnumerator RotateToCamera(Vector3 Target)
@@ -68,6 +64,11 @@ public class Enemies : MonoBehaviour
 
             //rotate us over time according to speed until we are in the required rotation
             rotator.rotation = Quaternion.Slerp(rotator.rotation, _lookRotation, time);
+
+            _direction = (Target - shootPoint.position).normalized;
+
+            shootPoint.rotation = Quaternion.LookRotation(_direction);
+
             time2 += Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
@@ -86,6 +87,9 @@ public class Enemies : MonoBehaviour
             time -= .02f;
             yield return null;
         }
+
+        yield return new WaitForSeconds(2);
+        StartCoroutine(RotateToCamera(Target));
     }
 
     public void Shoot()
@@ -100,9 +104,17 @@ public class Enemies : MonoBehaviour
         else anim.Play("Damage", -1, 0);
     }
 
+    public void DamagePortal()
+    {
+        Debug.Log("Heee hee");
+    }
+
     public void Die()
     {
+        StopAllCoroutines();
         anim.SetBool("Stop", true);
+        anim.SetFloat("Speed", 0);
         Destroy(gameObject, anim.GetCurrentAnimatorStateInfo(1).length + 3);
     }
+
 }
