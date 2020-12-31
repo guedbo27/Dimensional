@@ -16,11 +16,27 @@ public class Weapon : MonoBehaviour
     [HideInInspector]
     public GameManager manag;
 
+    [HideInInspector]
     public Type type;
     public float recoil;
     public float baseDmg;
-    float dmg;
+    protected float dmg;
     public int upgradeLvl = 1;
+
+    protected virtual void Start()
+    {
+        UpdateDamage();
+    }
+
+    protected virtual void UpdateDamage()
+    {
+        if (upgradeLvl == 1) { dmg = baseDmg; return; }
+    }
+
+    protected void TransferDmgToBullets(Munition mun)
+    {
+        mun.dmg = dmg;
+    }
 
     public virtual void Shoot()
     {

@@ -8,9 +8,4 @@ public class NormalBullet : Munition
     {
         transform.position += transform.forward * speed;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Portal")) SimplifiedTeleport.Teleport(transform, other.transform, other.GetComponent<Portal>().linkedPortal.transform);
-    }
 }

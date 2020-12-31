@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
         //Input for compTesting
         while (_a > 0)
         {
-            if (Input.touchCount > 0)
-            //if (Input.GetMouseButtonDown(0))
+            //if (Input.touchCount > 0)
+            if (Input.GetMouseButtonDown(0))
             {
                 Portal _portal = Instantiate(placePortal, location.position, location.rotation).GetComponent<Portal>();
                 _portal.transform.Rotate(Vector3.right * 90);
@@ -58,17 +58,20 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Shooting());
     }
 
-    void OnGUI()
-    {
-        Touch touch = Input.touches[0];
-        if (touch.position.x > Screen.width / 2) print("working as intended");
-    }
 
     IEnumerator Shooting()
     {
-        while (Input.touchCount == 0)
-        //while(!Input.GetMouseButtonDown(0))
+        bool shoot = false;
+        while (!shoot)
         {
+            //if (Input.touchCount > 0)
+            //{
+            //    Touch touch = Input.GetTouch(0);
+            //    if (touch.position.x > Screen.width / 2) shoot = true;
+            //    //else aspiración
+            //}
+            if (Input.GetMouseButton(0)) shoot = true;
+            
             yield return null;
         }
 

@@ -96,6 +96,8 @@ public class Enemies : MonoBehaviour
     public void RecieveDamage(float dmg)
     {
         life -= dmg;
+        if (life <= 0) Die();
+        else anim.Play("Damage", -1, 0);
     }
 
     public void Die()

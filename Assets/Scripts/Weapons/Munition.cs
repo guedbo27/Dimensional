@@ -26,8 +26,9 @@ public class Munition : MonoBehaviour
         enemy.RecieveDamage(dmg);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy")) Impact(other.GetComponent<Enemies>());
+        if (other.gameObject.layer == LayerMask.NameToLayer("Portal")) SimplifiedTeleport.Teleport(transform, other.transform, other.GetComponent<Portal>().linkedPortal.transform);
     }
 }
