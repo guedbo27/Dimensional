@@ -12,7 +12,7 @@ public class NormalWeap : Weapon
         type = Type.normal;
     }
 
-    protected override void UpdateDamage()
+    public override void UpdateDamage()
     {
         base.UpdateDamage();
         //Actualizar Daño Del Arma

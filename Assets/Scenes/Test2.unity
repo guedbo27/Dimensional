@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 301243444}
   - component: {fileID: 301243443}
   - component: {fileID: 301243442}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Capsule
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 1809219774}
   - component: {fileID: 1809219773}
   - component: {fileID: 1809219778}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Telebullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b808adf4431fa5742abc2482b7b66255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.3
   dmg: 0
 --- !u!135 &1809219774
 SphereCollider:

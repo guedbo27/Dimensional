@@ -16,7 +16,7 @@ public class TeleBullet : Munition
     {
         if(enemyDetected == null)
         {
-            Collider[] coll = Physics.OverlapSphere(transform.position, 5, gameObject.layer);
+            Collider[] coll = Physics.OverlapSphere(transform.position, 5, 1 << gameObject.layer);
             foreach (Collider col in coll)
             {
                 if (col.CompareTag("Enemy"))

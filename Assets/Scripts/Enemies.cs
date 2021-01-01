@@ -46,7 +46,7 @@ public class Enemies : MonoBehaviour
                 temp = Vector3.Lerp(point[0].position, point[1].position, Random.Range(0f, 1f));
                 temp2 = Vector3.Lerp(point[2].position, point[3].position, Random.Range(0f, 1f));
                 Target = Vector3.Lerp(temp, temp2, Random.Range(0f, 1f));
-                if (Vector3.Distance(transform.position, Target) < 5) yield break;
+                if (Vector3.Distance(transform.position, Target) < 10) yield break;
             }
             yield return null;
         }
@@ -127,7 +127,6 @@ public class Enemies : MonoBehaviour
 
     public void DamagePortal()
     {
-        Debug.Log("Heee hee");
         manag.DamagePortal(dmg);
     }
 

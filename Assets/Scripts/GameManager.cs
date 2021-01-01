@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeWeapon(Weapon.Type _type)
     {
-        //if(_type == weaponType)
+        if (_type == weaponType) { weapons[(int)weaponType].UpdateDamage(); return; }
         weaponAnim.SetBool(_type.ToString(), true);
         weaponType = _type;
     }

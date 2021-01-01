@@ -21,15 +21,16 @@ public class Weapon : MonoBehaviour
     public float recoil;
     public float baseDmg;
     protected float dmg;
-    public int upgradeLvl = 1;
+    public int upgradeLvl = 0;
 
     protected virtual void Start()
     {
         UpdateDamage();
     }
 
-    protected virtual void UpdateDamage()
+    public virtual void UpdateDamage()
     {
+        upgradeLvl++;
         if (upgradeLvl == 1) { dmg = baseDmg; return; }
     }
 
