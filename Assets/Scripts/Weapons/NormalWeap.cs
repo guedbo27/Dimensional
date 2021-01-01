@@ -9,7 +9,6 @@ public class NormalWeap : Weapon
     protected override void Start()
     {
         base.Start();
-        type = Type.normal;
     }
 
     public override void UpdateDamage()

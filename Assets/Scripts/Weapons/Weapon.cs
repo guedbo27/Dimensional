@@ -16,7 +16,6 @@ public class Weapon : MonoBehaviour
     [HideInInspector]
     public GameManager manag;
 
-    [HideInInspector]
     public Type type;
     public float recoil;
     public float baseDmg;
