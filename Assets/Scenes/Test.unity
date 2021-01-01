@@ -185,7 +185,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   spawnPoints: []
-  lifePoints: 0
+  shootPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   lifeBar: {fileID: 0}
 --- !u!1 &30735794
 GameObject:
@@ -708,36 +712,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.191637, y: 3.4459572, z: 0.75055826}
   m_Center: {x: -0.0016923043, y: 1.2229764, z: -0.1247199}
---- !u!1 &334470282
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 334470283}
-  m_Layer: 8
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &334470283
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 334470282}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.689, y: 2.718, z: 30.683}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1474233538}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &344122483
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,9 +721,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 344122484}
-  - component: {fileID: 344122486}
   - component: {fileID: 344122485}
   - component: {fileID: 344122487}
+  - component: {fileID: 344122486}
   m_Layer: 8
   m_Name: Position
   m_TagString: Enemy
@@ -765,7 +739,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344122483}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.41, z: 20.56}
+  m_LocalPosition: {x: 7.130001, y: 0.41, z: -26.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 411256980}
@@ -786,12 +760,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 3
   dmg: 2
-  point: {fileID: 2120932072}
+  point: []
   shootPoint: {fileID: 1898123840}
   shootBullet: {fileID: 4286741986216296160, guid: e0b16a96423bf394dbc6cc2095cfb7d3,
     type: 3}
-  anim: {fileID: 0}
-  fireRate: 0
+  fireRate: 3
 --- !u!95 &344122486
 Animator:
   serializedVersion: 3
@@ -1283,7 +1256,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   spawnPoints: []
-  lifePoints: 0
+  shootPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   lifeBar: {fileID: 0}
 --- !u!1001 &799838377
 PrefabInstance:
@@ -2423,7 +2400,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1474233538}
   - component: {fileID: 1474233540}
-  - component: {fileID: 1474233539}
   m_Layer: 8
   m_Name: Ice
   m_TagString: Untagged
@@ -2445,23 +2421,9 @@ Transform:
   - {fileID: 2120932072}
   - {fileID: 1718087214}
   - {fileID: 344122484}
-  - {fileID: 334470283}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1474233539
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474233537}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 19.106598, y: 4.683488, z: 6.9045334}
-  m_Center: {x: 0.4575653, y: 1.841744, z: 27.935757}
 --- !u!114 &1474233540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2478,8 +2440,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  spawnPoints: []
-  lifePoints: 0
+  spawnPoints:
+  - spawn: {fileID: 0}
+    animator: {fileID: 0}
+  - spawn: {fileID: 0}
+    animator: {fileID: 0}
+  shootPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   lifeBar: {fileID: 0}
 --- !u!1 &1539274697
 GameObject:
@@ -2933,7 +2903,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   spawnPoints: []
-  lifePoints: 0
+  shootPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   lifeBar: {fileID: 0}
 --- !u!1 &1874663325
 GameObject:

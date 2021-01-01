@@ -14,22 +14,43 @@ public class Enemies : MonoBehaviour
     public float life;
     public float dmg;
     //[HideInInspector]
-    public Transform point;
+    public Transform[] point;
     public Transform shootPoint;
     public GameObject shootBullet;
 
+    PortalManager manag;
     Animator anim;
     public float fireRate;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        manag = transform.parent.GetComponent<PortalManager>();
         gameObject.tag = "Enemy";
-        StartCoroutine(RotateToCamera(point.position + Vector3.up ));
+        StartCoroutine(RotateToCamera());
     }
 
-    IEnumerator RotateToCamera(Vector3 Target)
+    IEnumerator RotateToCamera()
     {
+        Vector3 Target = Vector3.zero;
+        Vector3 temp;
+        Vector3 temp2;
+        float counting = fireRate + Random.Range(1, 5);
+
+        while(Target == Vector3.zero)
+        {
+           
+            counting--;
+            if (counting <= 0)
+            {
+                temp = Vector3.Lerp(point[0].position, point[1].position, Random.Range(0f, 1f));
+                temp2 = Vector3.Lerp(point[2].position, point[3].position, Random.Range(0f, 1f));
+                Target = Vector3.Lerp(temp, temp2, Random.Range(0f, 1f));
+                if (Vector3.Distance(transform.position, Target) < 5) yield break;
+            }
+            yield return null;
+        }
+        
         Vector3 _direction;
         Quaternion _lookRotation;
 
@@ -89,7 +110,7 @@ public class Enemies : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2);
-        StartCoroutine(RotateToCamera(Target));
+        StartCoroutine(RotateToCamera());
     }
 
     public void Shoot()
@@ -107,6 +128,7 @@ public class Enemies : MonoBehaviour
     public void DamagePortal()
     {
         Debug.Log("Heee hee");
+        manag.DamagePortal(dmg);
     }
 
     public void Die()
