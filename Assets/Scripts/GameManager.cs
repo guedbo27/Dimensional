@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     Weapon[] weapons = new Weapon[5];
     int selectedWeapon = 0;
     Coroutine shoot;
+    Animator weaponAnim;
+    Weapon.Type weaponType = Weapon.Type.normal;
 
 
     private void Start()
@@ -28,6 +30,8 @@ public class GameManager : MonoBehaviour
             _weapon.manag = this;
             weapons[(int)_weapon.type] = _weapon;
         }
+
+        weaponAnim = transform.GetChild(0).GetChild(0).GetComponent<Animator>();
 
         foreach(Portal portal in exitPortals)
         {
@@ -86,6 +90,13 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(weapons[selectedWeapon].recoil);
         shoot = StartCoroutine(Shooting());
+    }
+
+    public void ChangeWeapon(Weapon.Type _type)
+    {
+        //if(_type == weaponType)
+        weaponAnim.SetBool(_type.ToString(), true);
+        weaponType = _type;
     }
 
     public void Stun()
