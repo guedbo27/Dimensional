@@ -77,6 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.6
   dmg: 0
+  explosion: {fileID: 155912067426949805, guid: 421682d3e5dae6640a152093ab8e434f,
+    type: 3}
 --- !u!1001 &1675229917425377486
 PrefabInstance:
   m_ObjectHideFlags: 0
