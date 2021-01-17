@@ -18,6 +18,8 @@ public class Drop : MonoBehaviour
     {
         GameManager.instance.getDrops += GetToPlayer;
         target = transform.parent.GetChild(0);
+        //OnlyTest
+        manag = transform.parent.GetComponent<PortalManager>();
     }
     public void GetToPlayer(LayerMask mask)
     {

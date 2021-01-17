@@ -14,6 +14,11 @@ public class SimplifiedTeleport : MonoBehaviour
         foreach (Transform child in obj)
         {
             child.gameObject.layer = portalTo.gameObject.layer;
+            foreach (Transform chldren in child)
+            {
+                chldren.gameObject.layer = portalTo.gameObject.layer;
+
+            }
         }
     }
 }

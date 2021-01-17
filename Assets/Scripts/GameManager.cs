@@ -16,9 +16,8 @@ public class GameManager : MonoBehaviour
     public LayerMask layer;
 
     Weapon[] weapons = new Weapon[5];
-    int selectedWeapon = 0;
+
     Coroutine shoot;
-    //MAMA LUIGI
     Coroutine suck;
     Coroutine back;
     float countDown = 3;
@@ -28,7 +27,6 @@ public class GameManager : MonoBehaviour
 
     float weaponUpgradeCooldown;
     float upgradeCooldown;
-
 
     private void Awake()
     {
@@ -82,10 +80,7 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForSeconds(2);
             }
             yield return null;
-
-
         }
-
         Destroy(location.gameObject);
         shoot = StartCoroutine(Shooting());
     }
@@ -94,7 +89,7 @@ public class GameManager : MonoBehaviour
     ParticleSystem particle;
     PortalManager portal = null;
 
-    IEnumerator Shooting()
+    public IEnumerator Shooting()
     {
         bool _shoot = false;
         Transform previousTrans;
@@ -149,6 +144,7 @@ public class GameManager : MonoBehaviour
                 if (countDown <= 0)
                 {
                     Debug.Log("HAKAI");
+                    Destroy(ray.transform.GetChild(3).gameObject, 1);
                 }
 
                 countDown = 3;
@@ -165,10 +161,10 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        weapons[selectedWeapon].Shoot();
+        weapons[(int)weaponType].Shoot();
         if (back != null) StopCoroutine(back);
         back = StartCoroutine(BackWeapon());
-        yield return new WaitForSeconds(weapons[selectedWeapon].recoil);
+        yield return new WaitForSeconds(weapons[(int)weaponType].recoil);
         shoot = StartCoroutine(Shooting());
     }
 
@@ -225,7 +221,16 @@ public class GameManager : MonoBehaviour
                         isDetected = false;
                         continue;
                     }
-                    getDrops?.Invoke(portal.linkedPortal.gameObject.layer);
+
+                    try
+                    {
+                        getDrops?.Invoke(portal.linkedPortal.gameObject.layer);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.Log("Weird Error?\n" + e);
+                    }
+
                 }
                 yield return null;
             }
@@ -244,16 +249,16 @@ public class GameManager : MonoBehaviour
             case Drop.Type.upgrade:
                 switch(manag.gameObject.layer)
                 {
-                    case 1 << 8:
+                    case 8:
                         ChangeWeapon(Weapon.Type.tele);
                         break;
-                    case 1 << 9:
+                    case 9:
                         ChangeWeapon(Weapon.Type.escopeta);
                         break;
-                    case 1 << 10:
+                    case 10:
                         ChangeWeapon(Weapon.Type.cañon);
                         break;
-                    case 1 << 11:
+                    case 11:
                         ChangeWeapon(Weapon.Type.laser);
                         break;
                 }
@@ -265,7 +270,7 @@ public class GameManager : MonoBehaviour
     {
         if (_type == weaponType) { weapons[(int)weaponType].UpdateDamage(); return; }
         else weapons[(int)weaponType].upgradeLvl = 0;
-
+        
         weaponAnim.SetBool("normal", true);
         weaponAnim.SetBool(_type.ToString(), true);
         weapons[(int)weaponType].gameObject.SetActive(false);
@@ -289,13 +294,54 @@ public class GameManager : MonoBehaviour
         ChangeWeapon(Weapon.Type.normal);
     }
 
-    public void Stun()
+    public void Stun(LayerMask layer)
     {
-        if (shoot != null) StopCoroutine(shoot);
-        if (suck != null) StopCoroutine(suck);
+        //if (shoot == null && suck == null) return;
 
-        Debug.Log("Impact!");
+        if (shoot != null) { StopCoroutine(shoot); shoot = null; }
+        if (particle != null)
+        {
+            particle.Stop();
+            particle = null;
+        }
+        if (suck != null) { StopCoroutine(suck); suck = null; }
+    
+    Debug.Log("Impact!");
 
-        //Aqui va selección de stun
+        switch (layer)
+        {
+            case 1 << 8:
+                ChangeWeapon(Weapon.Type.tele);
+                break;
+            case 1 << 9:
+                StartCoroutine(OnFire());
+                break;
+            case 1 << 10:
+                transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
+                break;
+            case 1 << 11:
+                transform.GetChild(2).GetChild(3).gameObject.SetActive(true);
+                break;
+        }
     }
+
+    IEnumerator OnFire()
+    {
+        transform.GetChild(2).GetChild(1).gameObject.SetActive(true);
+        float shake = 10;
+
+        while (shake > 0)
+        {
+            if (Input.acceleration.sqrMagnitude > 5f) 
+                shake -= .1f;
+
+            shake -= Time.deltaTime;
+            yield return null;
+        }
+
+        transform.GetChild(2).GetChild(1).gameObject.SetActive(false);
+        shoot = StartCoroutine(Shooting());
+    }
+
+
 }
