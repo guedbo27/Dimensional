@@ -17,6 +17,7 @@ public class Enemies : MonoBehaviour
     public Transform[] point;
     public Transform shootPoint;
     public GameObject shootBullet;
+    public GameObject[] drops;
 
     PortalManager manag;
     Animator anim;
@@ -26,6 +27,7 @@ public class Enemies : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         manag = transform.parent.GetComponent<PortalManager>();
+        manag.killAll += Die;
         gameObject.tag = "Enemy";
         StartCoroutine(RotateToCamera());
     }
@@ -134,6 +136,7 @@ public class Enemies : MonoBehaviour
     {
         StopAllCoroutines();
         anim.SetBool("Stop", true);
+        Instantiate(drops[0], transform.position + new Vector3(Random.Range(1f, 3f), Random.Range(.1f, .3f), 0), Quaternion.identity,transform.parent);
         anim.SetFloat("Speed", 0);
         Destroy(gameObject, anim.GetCurrentAnimatorStateInfo(1).length + 3);
     }

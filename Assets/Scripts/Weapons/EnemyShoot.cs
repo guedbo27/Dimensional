@@ -23,7 +23,7 @@ public class EnemyShoot : MonoBehaviour
         //PlayerHit
         if (other.CompareTag("MainCamera")) { other.GetComponent<GameManager>().Stun(); Destroy(gameObject); }
 
-        //if (other.CompareTag("Portal")) SimplifiedTeleport.Teleport(transform, other.transform, other.GetComponent<Portal>().linkedPortal.transform);
+        if (other.CompareTag("Portal")) SimplifiedTeleport.Teleport(transform, other.transform, other.GetComponent<Portal>().linkedPortal.transform);
 
         if (other.CompareTag("Obstacle")) Destroy(gameObject);
     }
