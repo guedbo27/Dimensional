@@ -51,7 +51,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a5292b8a668fd414eab9ac60db5c4eaa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,6 +145,7 @@ MonoBehaviour:
   lr: {fileID: 6301852019553434088}
   particula: {fileID: 6661346825735162808}
   create: 0
+  dmg: 0
 --- !u!1 &7336653414455471849
 GameObject:
   m_ObjectHideFlags: 0
