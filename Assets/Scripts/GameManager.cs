@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
                 exitPortals[_a - 1].linkedPortal = _portal;
                 exitPortals[_a - 1].transform.parent.GetComponent<PortalManager>().lifeBar = _portal.transform.GetChild(2).GetChild(0).GetComponent<Image>();
                 _a--;
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(.5f);
             }
             yield return null;
         }
@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
                 {
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2)), out ray, 20, 1 << 12))
                     {
-                        if (ray.transform.childCount == 4)
+                        if (ray.transform.Find("Charge") != null)
                         {
                             portal = ray.transform.GetComponent<Portal>().linkedPortal.transform.parent.GetComponent<PortalManager>();
                             particle = ray.transform.GetChild(3).GetComponent<ParticleSystem>();
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
                 if (countDown <= 0)
                 {
                     Debug.Log("HAKAI");
-                    Destroy(ray.transform.GetChild(3).gameObject, 1);
+                    Destroy(ray.transform.Find("Charge").gameObject, 1);
                 }
 
                 countDown = 3;

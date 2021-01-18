@@ -77,7 +77,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 5}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 5
+    widthMultiplier: 1
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -145,7 +145,6 @@ MonoBehaviour:
   lr: {fileID: 6301852019553434088}
   particula: {fileID: 6661346825735162808}
   create: 0
-  dmg: 0
 --- !u!1 &7336653414455471849
 GameObject:
   m_ObjectHideFlags: 0

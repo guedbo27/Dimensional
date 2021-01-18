@@ -9,7 +9,7 @@ public class LaserWeapon : Weapon
     GameObject instantLaser;
     private void Update()
     {
-        if (activated && Input.touchCount < 1)
+        if (activated && (Input.touchCount < 1 || Input.GetTouch(0).position.x < Screen.width / 1.6f))
         {
             Destroy(instantLaser);
             activated = false;
@@ -21,5 +21,6 @@ public class LaserWeapon : Weapon
         if (activated) return;
         activated = true;
         instantLaser = Instantiate(laser, transform);
+        Laser.dmg = dmg;
     }
 }

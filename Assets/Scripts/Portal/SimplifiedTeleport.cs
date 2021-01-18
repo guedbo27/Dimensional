@@ -11,6 +11,7 @@ public class SimplifiedTeleport : MonoBehaviour
         obj.rotation = m.rotation;
         //Added By Me
         obj.gameObject.layer = portalTo.gameObject.layer;
+
         foreach (Transform child in obj)
         {
             child.gameObject.layer = portalTo.gameObject.layer;
