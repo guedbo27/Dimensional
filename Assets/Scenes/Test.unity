@@ -7585,6 +7585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placePortal: {fileID: 2677767852324204176, guid: bbb52421304015a4c908affaa970d8a7,
     type: 3}
+  suckGun: {fileID: 1221514559}
   exitPortals:
   - {fileID: 2120932069}
   - {fileID: 2023983132}
@@ -7796,14 +7797,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221514558}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.47000003, y: -0.5, z: 0.276}
+  m_LocalRotation: {x: 0.67559016, y: 0, z: 0, w: 0.7372774}
+  m_LocalPosition: {x: -0.47000003, y: -0.376, z: 0.202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 543450652941989796}
   m_Father: {fileID: 1091159044}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 85, y: 0, z: 0}
 --- !u!1 &1228154105
 GameObject:
   m_ObjectHideFlags: 0

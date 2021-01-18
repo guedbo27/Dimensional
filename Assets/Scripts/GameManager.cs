@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     //Prefab de un portal
     public GameObject placePortal;
 
+    public Transform suckGun;
+
     //Portales ya colocados en escena para los mundos
     public Portal[] exitPortals = new Portal[4];
 
@@ -91,6 +93,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator Shooting()
     {
+        
         bool _shoot = false;
         Transform previousTrans;
         RaycastHit hit;
@@ -190,6 +193,15 @@ public class GameManager : MonoBehaviour
         Portal portal = null;
         Touch touch;
 
+        float time = 0;
+        while (time < 1)
+        {
+            suckGun.eulerAngles = Vector3.right * Mathf.Lerp(0, 85, time);
+            weaponAnim.transform.localPosition = Vector3.up * Mathf.Lerp(0, -3, time);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
         while (true)
         {
             if (Input.touchCount <= 0) break;
@@ -234,6 +246,14 @@ public class GameManager : MonoBehaviour
                 }
                 yield return null;
             }
+        }
+
+        while (time > 0)
+        {
+            suckGun.eulerAngles = Vector3.right * Mathf.Lerp(0, 85, time);
+            weaponAnim.transform.localPosition = Vector3.up * Mathf.Lerp(0, -3, time);
+            time -= Time.deltaTime;
+            yield return null;
         }
 
         shoot = StartCoroutine(Shooting());
