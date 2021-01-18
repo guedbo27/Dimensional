@@ -9,6 +9,7 @@ public class PortalManager : MonoBehaviour
     [Serializable]
     public struct Routes
     {
+        public Enemies.Type enemyType;
         public Transform spawn;
         public AnimatorOverrideController animator;
     }
@@ -24,13 +25,30 @@ public class PortalManager : MonoBehaviour
     [HideInInspector]
     public Image lifeBar;
 
-    void SpawnEnemy(Routes route, GameObject enemy)
+    void SpawnEnemy(Routes route)
     {
-        enemy = Instantiate(enemy, route.spawn);
+        if (route.spawn.childCount > 0) return;
+        GameObject enemy = Instantiate(enemies[(int)route.enemyType], route.spawn);
         enemy.GetComponent<Animator>().runtimeAnimatorController = route.animator;
         GetComponent<Enemies>().point = shootPoints;
         anim = GetComponent<Animator>();
         anim.speed = 0;
+    }
+
+    public IEnumerator EnemiesSpawn()
+    {
+        float spawnRate;
+        while (true)
+        {
+            spawnRate = UnityEngine.Random.Range(4, 22);
+            while(spawnRate > 0)
+            {
+                spawnRate -= Time.deltaTime;
+                yield return null;
+            }
+
+            SpawnEnemy(spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)]);
+        }
     }
 
     public void InvokeUltimate()

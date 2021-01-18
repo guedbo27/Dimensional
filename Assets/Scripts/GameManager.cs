@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public int toWin;
+    int winGot = 0;
     //Prefab de un portal
     public GameObject placePortal;
 
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
     public Portal[] exitPortals = new Portal[4];
 
     public LayerMask layer;
+
 
     Weapon[] weapons = new Weapon[5];
 
@@ -84,6 +87,10 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         Destroy(location.gameObject);
+        foreach (Portal portal in exitPortals)
+        {
+            StartCoroutine(portal.transform.parent.GetComponent<PortalManager>().EnemiesSpawn());
+        }
         shoot = StartCoroutine(Shooting());
     }
 
@@ -193,12 +200,12 @@ public class GameManager : MonoBehaviour
         Portal portal = null;
         Touch touch;
 
-        float time = 0;
-        while (time < 1)
+        float time = 1;
+        while (time > 0)
         {
-            suckGun.eulerAngles = Vector3.right * Mathf.Lerp(0, 85, time);
-            weaponAnim.transform.localPosition = Vector3.up * Mathf.Lerp(0, -3, time);
-            time += Time.deltaTime;
+            suckGun.localEulerAngles = Vector3.right * Mathf.Lerp(0, 85, time);
+            weaponAnim.transform.localPosition = Vector3.up * Mathf.Lerp(-3, 0, time);
+            time -= Time.deltaTime * 2;
             yield return null;
         }
 
@@ -248,11 +255,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        while (time > 0)
+        while (time < 1)
         {
-            suckGun.eulerAngles = Vector3.right * Mathf.Lerp(0, 85, time);
-            weaponAnim.transform.localPosition = Vector3.up * Mathf.Lerp(0, -3, time);
-            time -= Time.deltaTime;
+            suckGun.localEulerAngles = Vector3.right * Mathf.Lerp(0, 85, time);
+            weaponAnim.transform.localPosition = Vector3.up * Mathf.Lerp(-3, 0, time);
+            time += Time.deltaTime * 2;
             yield return null;
         }
 
@@ -264,7 +271,8 @@ public class GameManager : MonoBehaviour
         switch(type)
         {
             case Drop.Type.virus:
-                Debug.Log("Virus");
+                winGot++;
+                if (winGot >= toWin) FinishGame();
                 break;
             case Drop.Type.upgrade:
                 switch(manag.gameObject.layer)
@@ -331,7 +339,7 @@ public class GameManager : MonoBehaviour
         switch (layer)
         {
             case 1 << 8:
-                ChangeWeapon(Weapon.Type.tele);
+                transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
                 break;
             case 1 << 9:
                 StartCoroutine(OnFire());
@@ -363,5 +371,8 @@ public class GameManager : MonoBehaviour
         shoot = StartCoroutine(Shooting());
     }
 
-
+    void FinishGame()
+    {
+        Debug.Log("YOU WIN YO SONNA OF A BICH");
+    }
 }

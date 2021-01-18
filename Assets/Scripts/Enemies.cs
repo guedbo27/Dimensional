@@ -6,9 +6,9 @@ public class Enemies : MonoBehaviour
 {
     public enum Type
     {
-        fast,
-        shooter,
-        big
+        normal = 0,
+        shooter = 1,
+        big = 2
     }
 
     public float life;

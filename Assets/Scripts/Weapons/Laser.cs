@@ -68,7 +68,10 @@ public class Laser : MonoBehaviour
         else StartCoroutine(AttackRay());
     }
 
-    
+    private void Update()
+    {
+        lr.material.mainTextureOffset = new Vector2(-Time.time, 0);
+    }
 
     IEnumerator DefaultRay()
     {
@@ -108,7 +111,7 @@ public class Laser : MonoBehaviour
                         comparison = hit.transform;
                     }
 
-                    lr.SetPosition(1, hit.point);
+                    lr.SetPosition(1, hit.point + (transform.forward * 10));
                 }
             }
             else
@@ -123,17 +126,12 @@ public class Laser : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * 250);
-    }
-
     IEnumerator AttackRay()
     {
         RaycastHit hit;
         while (true)
         {
-            lr.SetPosition(0, transform.position);
+            lr.SetPosition(0, transform.position - (transform.forward * 10));
             if (Physics.Raycast(transform.position, transform.forward, out hit, transform.gameObject.layer))
             {
                 if (hit.collider)
@@ -155,6 +153,11 @@ public class Laser : MonoBehaviour
 
             yield return new WaitForFixedUpdate();
         }
+    }
+
+    private void OnDisable()
+    {
+        if (otherRay != null) Destroy(otherRay);
     }
 
     private void OnDestroy()

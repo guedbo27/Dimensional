@@ -7,7 +7,7 @@ public class Munition : MonoBehaviour
     public float speed;
     [HideInInspector]
     public float dmg;
-    private void Start()
+    protected void Start()
     {
         Destroy(gameObject, 7);
     }
@@ -26,7 +26,7 @@ public class Munition : MonoBehaviour
         enemy.RecieveDamage(dmg);
     }
 
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy")) { Impact(other.GetComponent<Enemies>()); Destroy(gameObject); }
         if (other.gameObject.layer == LayerMask.NameToLayer("Portal")) SimplifiedTeleport.Teleport(transform, other.transform, other.GetComponent<Portal>().linkedPortal.transform);
