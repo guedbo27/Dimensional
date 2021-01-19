@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public GameObject[] stuns = new GameObject[0];
     public int toWin;
     int winGot = 0;
+    public int activePortals = 4;
+    public GameObject youLose;
+    public GameObject youWin;
     //Prefab de un portal
     public GameObject placePortal;
 
@@ -275,6 +278,7 @@ public class GameManager : MonoBehaviour
         {
             case Drop.Type.virus:
                 winGot++;
+                text.text = winGot +"/"+ toWin;
                 if (winGot >= toWin) FinishGame();
                 break;
             case Drop.Type.upgrade:
@@ -370,7 +374,7 @@ public class GameManager : MonoBehaviour
 
         while (shake > 0)
         {
-            if (Vector3.Distance(transform.position, oldPos) > .001f) 
+            if (Vector3.Distance(transform.position, oldPos) > .00000000000000000000000001f) 
                 shake -= 1;
 
             oldPos = transform.position;
@@ -384,7 +388,15 @@ public class GameManager : MonoBehaviour
 
     void FinishGame()
     {
-        Debug.Log("YOU WIN YO SONNA OF A BICH");
-        text.text = "You Win";
+        youWin.SetActive(true);
+    }
+
+    public void DeactivatedPortal()
+    {
+        activePortals--;
+        if(activePortals <= 2)
+        {
+            youLose.SetActive(true);
+        }
     }
 }

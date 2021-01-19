@@ -77,6 +77,8 @@ public class PortalManager : MonoBehaviour
 
     void DestroyPortal()
     {
-        Debug.Log("PortalDestroyed");
+        GameManager.instance.DeactivatedPortal();
+        transform.GetChild(0).GetComponent<Portal>().linkedPortal.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
