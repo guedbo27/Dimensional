@@ -326,6 +326,7 @@ public class GameManager : MonoBehaviour
 
     public void Stun(LayerMask layer)
     {
+        return;
         if (shoot == null && suck == null) return;
 
         if (shoot != null) { StopCoroutine(shoot); shoot = null; }
