@@ -9609,6 +9609,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image:
   - {fileID: 7298311219676968032, guid: a3fcb8d4a9514544590d1015c2961a10, type: 3}
+  - {fileID: 7298311219676968032, guid: 4ce0bdfe4e098cb40babcd189058ffca, type: 3}
+  - {fileID: 7298311219676968032, guid: 4d90341cf1ca6894c9bcc5e187b8d73b, type: 3}
 --- !u!114 &995674342
 MonoBehaviour:
   m_ObjectHideFlags: 0
