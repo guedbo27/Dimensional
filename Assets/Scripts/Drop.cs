@@ -36,7 +36,6 @@ public class Drop : MonoBehaviour
             transform.position += (GameManager.instance.transform.position - transform.position) * .01f;
             yield return null;
         }
-       
     }
 
     protected void OnTriggerEnter(Collider other)

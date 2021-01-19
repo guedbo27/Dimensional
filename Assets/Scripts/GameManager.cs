@@ -337,7 +337,7 @@ public class GameManager : MonoBehaviour
         if (suck != null) { StopCoroutine(suck); suck = null; }
 
         string coso = LayerMask.LayerToName(layer);
-        text.text = coso + " Oh no";
+        text.text = "A"+ coso + " Oh no";
 
         switch (coso)
         {
