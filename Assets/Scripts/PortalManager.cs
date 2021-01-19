@@ -55,11 +55,6 @@ public class PortalManager : MonoBehaviour
         }
     }
 
-    public void InvokeUltimate()
-    {
-        anim.speed = 1;
-    }
-
     public void DamagePortal(float dmg)
     {
         try
