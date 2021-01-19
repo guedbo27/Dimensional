@@ -68,8 +68,8 @@ public class GameManager : MonoBehaviour
     //ColocarPortales
     IEnumerator BeginGame()
     {
-        MainCamera camera = GetComponent<MainCamera>();
-        Transform location = camera.transform.GetChild(1);
+        MainCamera camera = FindObjectOfType<MainCamera>();
+        Transform location = transform.GetChild(1);
         int _a = 4;
         while (_a > 0)
         {
