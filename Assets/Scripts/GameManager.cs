@@ -338,18 +338,18 @@ public class GameManager : MonoBehaviour
     
         text.text = LayerMask.LayerToName(layer);
 
-        switch (layer)
+        switch (LayerMask.LayerToName(layer))
         {
-            case 8:
+            case "Ice":
                 transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
                 break;
-            case 9:
+            case "Fire":
                 StartCoroutine(OnFire());
                 break;
-            case 10:
+            case "Pirate":
                 transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
                 break;
-            case 11:
+            case "Cyber":
                 transform.GetChild(2).GetChild(3).gameObject.SetActive(true);
                 break;
         }
