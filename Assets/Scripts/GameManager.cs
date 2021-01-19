@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         {
             portal.tag = "Portal";
         }
-       
+        text.text = winGot + "/" + toWin;
         StartCoroutine(BeginGame());
     }
 
@@ -388,6 +388,7 @@ public class GameManager : MonoBehaviour
     void FinishGame()
     {
         youWin.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void DeactivatedPortal()
@@ -396,6 +397,7 @@ public class GameManager : MonoBehaviour
         if(activePortals <= 2)
         {
             youLose.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }
