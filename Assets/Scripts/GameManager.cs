@@ -232,6 +232,7 @@ public class GameManager : MonoBehaviour
                 {
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2)), out checkRay, 20, 1 << 12))
                     {
+                        text.text = "Impacting";
                         if (ray.transform != checkRay.transform)
                         {
                             isDetected = false;
@@ -344,7 +345,7 @@ public class GameManager : MonoBehaviour
         {
             case "Ice":
                 text.text = LayerMask.LayerToName(layer) + "works";
-                transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
+                stuns[0].SetActive(true);
                 break;
             case "Fire":
                 StartCoroutine(OnFire());
@@ -352,18 +353,20 @@ public class GameManager : MonoBehaviour
                 break;
             case "Pirate":
                 text.text = LayerMask.LayerToName(layer) + "works";
-                transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
+                stuns[2].SetActive(true);
+
                 break;
             case "Cyber":
                 text.text = LayerMask.LayerToName(layer) + "works";
-                transform.GetChild(2).GetChild(3).gameObject.SetActive(true);
+                stuns[3].SetActive(true);
                 break;
         }
     }
 
     IEnumerator OnFire()
     {
-        transform.GetChild(2).GetChild(1).gameObject.SetActive(true);
+        stuns[1].SetActive(true);
+
         float shake = 10;
 
         while (shake > 0)
