@@ -55,10 +55,6 @@ public class GameManager : MonoBehaviour
             portal.tag = "Portal";
         }
        
-        foreach (Portal portal in exitPortals)
-        {
-            StartCoroutine(portal.transform.parent.GetComponent<PortalManager>().EnemiesSpawn());
-        }
         StartCoroutine(BeginGame());
     }
 
