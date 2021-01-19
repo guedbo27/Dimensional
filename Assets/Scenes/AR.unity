@@ -738,7 +738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &81604476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2520,7 +2520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &530714154
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12667,6 +12667,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 981441117}
+  stuns:
+  - {fileID: 1368349605}
+  - {fileID: 35757605}
+  - {fileID: 700413338}
+  - {fileID: 995674339}
   toWin: 10
   placePortal: {fileID: 2677767852324204176, guid: bbb52421304015a4c908affaa970d8a7,
     type: 3}
