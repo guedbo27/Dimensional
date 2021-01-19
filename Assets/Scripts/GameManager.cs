@@ -373,7 +373,7 @@ public class GameManager : MonoBehaviour
                 shake -= 1;
 
             shake -= Time.deltaTime;
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
 
         transform.GetChild(2).GetChild(1).gameObject.SetActive(false);
