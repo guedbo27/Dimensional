@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1882532456319826238}
   - component: {fileID: 2348799555116340906}
   - component: {fileID: 578792661757385108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8392085749801418865}
   - component: {fileID: 713281479923676981}
   - component: {fileID: 244489481141275198}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HandLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 424867791339871179}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IceNormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 3049516370990663177}
   - component: {fileID: 2373722809189854065}
   - component: {fileID: 5295159261217785438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HandRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

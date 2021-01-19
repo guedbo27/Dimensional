@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3368342834942411145}
   - component: {fileID: 595206433661463927}
   - component: {fileID: 5654507263583512670}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2843102883784448960}
   - component: {fileID: 4186147764333813384}
   - component: {fileID: 3197401349420914713}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 446832239596273721}
   - component: {fileID: 1827096693921796433}
   - component: {fileID: 8598935376307537984}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8044911838866108389}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Rotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 8044911838933238532}
   - component: {fileID: 8044911838933238534}
   - component: {fileID: 8044911838933238535}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: PirateBig
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8044911840617215281}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9032907014475056916}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PirataBig
   m_TagString: Untagged
   m_Icon: {fileID: 0}

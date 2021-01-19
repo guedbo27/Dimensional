@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 313454386848322923}
   - component: {fileID: 1241667240791070421}
   - component: {fileID: 6036716881592432745}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 2179907360429579472}
   - component: {fileID: 6872639731446901359}
   - component: {fileID: 5241748634415858681}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HandRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2472822379631288157}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IceShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 6781243388540963082}
   - component: {fileID: 5280968515539938358}
   - component: {fileID: 8273950173723519194}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HandLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}

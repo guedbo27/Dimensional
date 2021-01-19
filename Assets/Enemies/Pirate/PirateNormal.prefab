@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2650579928615195059}
   - component: {fileID: 320863974863341910}
   - component: {fileID: 6195192665987839415}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1243375101237462808}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PirataNormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 3299396783282907985}
   - component: {fileID: 979317151464827986}
   - component: {fileID: 5749362747206688764}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6379562220690560659}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Rotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6379562222289516674}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 6379562222492684817}
   - component: {fileID: 6379562222492684816}
   - component: {fileID: 6379562222492684819}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: PirateNormal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 8458003153916922670}
   - component: {fileID: 1526033973346148345}
   - component: {fileID: 4538920377974026688}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SwordHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
