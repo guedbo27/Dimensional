@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
             if (Input.touchCount > 0)
             {
                 Portal _portal = Instantiate(placePortal, location.position, location.rotation).GetComponent<Portal>();
+                //_portal.transform.Rotate(Vector3.up * -180);
                 _portal.linkedPortal = exitPortals[_a - 1];
                 camera.portals.Add(_portal);
                 exitPortals[_a - 1].linkedPortal = _portal;

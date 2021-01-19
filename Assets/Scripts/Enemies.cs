@@ -137,6 +137,7 @@ public class Enemies : MonoBehaviour
 
     public void Die()
     {
+        GetComponent<Collider>().enabled = false;
         StopAllCoroutines();
         anim.SetBool("Stop", true);
         Instantiate(drops[0], transform.position + new Vector3(Random.Range(1f, 3f), Random.Range(.1f, .3f), 0), Quaternion.identity,transform.parent);
