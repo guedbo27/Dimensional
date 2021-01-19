@@ -46,7 +46,7 @@ public class Drop : MonoBehaviour
     {
         if (mask == gameObject.layer)
         {
-            transform.position += ((target.position + (Vector3.up * .5f)) - transform.position) * .01f;
+            transform.position += ((target.position + (Vector3.up * .5f)) - transform.position) * .05f;
         }
     }
 
