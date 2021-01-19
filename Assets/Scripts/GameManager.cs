@@ -337,19 +337,19 @@ public class GameManager : MonoBehaviour
         if (suck != null) { StopCoroutine(suck); suck = null; }
     
     Debug.Log("Impact!");
-
+        text.text = LayerMask.LayerToName(layer);
         switch (layer)
         {
-            case 1 << 8:
+            case 8:
                 transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
                 break;
-            case 1 << 9:
+            case 9:
                 StartCoroutine(OnFire());
                 break;
-            case 1 << 10:
+            case 10:
                 transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
                 break;
-            case 1 << 11:
+            case 11:
                 transform.GetChild(2).GetChild(3).gameObject.SetActive(true);
                 break;
         }
