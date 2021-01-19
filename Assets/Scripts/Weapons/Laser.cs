@@ -50,7 +50,7 @@ public class Laser : MonoBehaviour
 {
     public LineRenderer lr;
     public Transform particula;
-    public static float dmg;
+    public static float dmg = .1f;
 
     Transform reference = null;
     Transform comparison = null;
@@ -139,6 +139,7 @@ public class Laser : MonoBehaviour
                     lr.SetPosition(1, hit.point);
                     if (hit.transform.CompareTag("Enemy"))
                     {
+                        GameManager.instance.text.text = "wadafoc " + dmg;
                         hit.transform.GetComponent<Enemies>().RecieveDamage(dmg);
                     }
                 }
