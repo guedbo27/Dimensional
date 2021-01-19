@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
     public int toWin;
     int winGot = 0;
     //Prefab de un portal
@@ -48,7 +50,6 @@ public class GameManager : MonoBehaviour
             weapons[(int)_weapon.type] = _weapon;
         }
 
-        //weaponAnim = transform.GetChild(0).GetChild(0).GetComponent<Animator>();
 
         foreach(Portal portal in exitPortals)
         {
@@ -67,16 +68,21 @@ public class GameManager : MonoBehaviour
     //ColocarPortales
     IEnumerator BeginGame()
     {
+        ARRaycastManager arOrigin;
+        List<ARRaycastHit> hits = new List<ARRaycastHit>();
+        arOrigin = FindObjectOfType<ARRaycastManager>();
         MainCamera camera = GetComponent<MainCamera>();
         Transform location = camera.transform.GetChild(1);
         int _a = 4;
 
         while (_a > 0)
         {
-            //if (Input.touchCount > 0)
-            if (Input.GetMouseButtonDown(0))
+            var ScreenCenter = Camera.current.ViewportToScreenPoint(new Vector3(.5f,.5f));
+            arOrigin.Raycast(ScreenCenter, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
+
+            if (Input.GetMouseButtonDown(0) && hits.Count <= 0)
             {
-                Portal _portal = Instantiate(placePortal, location.position, location.rotation).GetComponent<Portal>();
+                Portal _portal = Instantiate(placePortal, hits[0].pose.position, hits[0].pose.rotation).GetComponent<Portal>();
                 _portal.linkedPortal = exitPortals[_a - 1];
                 camera.portals.Add(_portal);
                 exitPortals[_a - 1].linkedPortal = _portal;
