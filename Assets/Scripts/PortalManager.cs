@@ -18,7 +18,6 @@ public class PortalManager : MonoBehaviour
     public List<Routes> spawnPoints;
     public Transform[] shootPoints = new Transform[4];
     public event Action killAll;
-    public float spawnRate;
     float lifePoints = 100;
     public Animator anim;
     //Portal portal;
@@ -44,7 +43,7 @@ public class PortalManager : MonoBehaviour
         float spawnRate;
         while (true)
         {
-            spawnRate = UnityEngine.Random.Range(4, 22);
+            spawnRate = UnityEngine.Random.Range(10, 22);
             while(spawnRate > 0)
             {
                 spawnRate -= Time.deltaTime;

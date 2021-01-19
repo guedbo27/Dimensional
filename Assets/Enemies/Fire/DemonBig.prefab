@@ -280,7 +280,7 @@ MonoBehaviour:
   drops:
   - {fileID: 822151083371437399, guid: 7be8a32440f069a478af5e97996386ca, type: 3}
   - {fileID: 7354019201111802977, guid: 39707b7d7be94a84aa69a45276c9ddf7, type: 3}
-  fireRate: 3
+  fireRate: 8
 --- !u!136 &501418088600533128
 CapsuleCollider:
   m_ObjectHideFlags: 0
