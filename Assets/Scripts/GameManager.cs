@@ -56,7 +56,9 @@ public class GameManager : MonoBehaviour
             portal.tag = "Portal";
         }
        
-        StartCoroutine(BeginGame());
+        //StartCoroutine(BeginGame());
+        StartCoroutine(Sucking());
+
     }
 
     private void FixedUpdate()
