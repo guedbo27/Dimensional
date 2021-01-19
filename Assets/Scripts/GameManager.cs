@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         int _a = 4;
         while (_a > 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 Portal _portal = Instantiate(placePortal, location.position, location.rotation).GetComponent<Portal>();
                 _portal.linkedPortal = exitPortals[_a - 1];
