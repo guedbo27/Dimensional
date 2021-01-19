@@ -370,7 +370,7 @@ public class GameManager : MonoBehaviour
 
         while (shake > 0)
         {
-            if (Input.acceleration.sqrMagnitude > 5f) 
+            if (Input.acceleration.sqrMagnitude > 1f) 
                 shake -= 1;
 
             shake -= Time.deltaTime;
