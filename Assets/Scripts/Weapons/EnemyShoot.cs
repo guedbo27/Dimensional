@@ -21,7 +21,7 @@ public class EnemyShoot : MonoBehaviour
     protected void OnTriggerEnter(Collider other)
     {
         //PlayerHit
-        if (other.CompareTag("MainCamera")) { other.GetComponent<GameManager>().Stun(layer); Destroy(gameObject); }
+        if (other.CompareTag("MainCamera")) { other.GetComponent<GameManager>().Stun(layer); GameManager.instance.text.text = "Hitted"; Destroy(gameObject); }
 
         if (other.CompareTag("Portal")) SimplifiedTeleport.Teleport(transform, other.transform, other.GetComponent<Portal>().linkedPortal.transform);
 
