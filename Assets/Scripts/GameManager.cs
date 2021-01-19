@@ -8,7 +8,7 @@ using UnityEngine.XR.ARFoundation;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public Text text;
     public int toWin;
     int winGot = 0;
     //Prefab de un portal
@@ -65,12 +65,6 @@ public class GameManager : MonoBehaviour
         weaponAnim.transform.parent.rotation = transform.GetChild(0).rotation;
     }
 
-    string variableName = "test";
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(0, 0, 100, 100), variableName);
-    }
-
     //ColocarPortales
     IEnumerator BeginGame()
     {
@@ -84,16 +78,17 @@ public class GameManager : MonoBehaviour
         {
             var ScreenCenter = Camera.main.ViewportToScreenPoint(new Vector3(.5f,.5f));
             arOrigin.Raycast(ScreenCenter, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
-
+            text.text = hits.Count.ToString();
             if (Input.GetMouseButtonDown(0) && hits.Count > 0)
             {
-                 Portal _portal = Instantiate(placePortal, hits[0].pose.position, hits[0].pose.rotation).GetComponent<Portal>();
-                 _portal.linkedPortal = exitPortals[_a - 1];
-                 camera.portals.Add(_portal);
-                 exitPortals[_a - 1].linkedPortal = _portal;
-                 exitPortals[_a - 1].transform.parent.GetComponent<PortalManager>().lifeBar = _portal.transform.GetChild(2).GetChild(0).GetComponent<Image>();
-                 _a--;
-                variableName = hits[0].pose.position.x + "," + hits[0].pose.position.y + "," + hits[0].pose.position.z;
+                text.text = hits[0].pose.position.x + "," + hits[0].pose.position.y + "," + hits[0].pose.position.z;
+
+                Portal _portal = Instantiate(placePortal, hits[0].pose.position, hits[0].pose.rotation).GetComponent<Portal>();
+                _portal.linkedPortal = exitPortals[_a - 1];
+                camera.portals.Add(_portal);
+                exitPortals[_a - 1].linkedPortal = _portal;
+                exitPortals[_a - 1].transform.parent.GetComponent<PortalManager>().lifeBar = _portal.transform.GetChild(2).GetChild(0).GetComponent<Image>();
+                _a--;
                 yield return new WaitForSeconds(.5f);
             }
             yield return null;
