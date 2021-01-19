@@ -58,7 +58,7 @@ public class CyberStun : MonoBehaviour
 
     public void AntiVirus()
     {
-        StartCoroutine(GameManager.instance.Shooting());
+        GameManager.instance.StartCoroutine(GameManager.instance.Shooting());
         gameObject.SetActive(false);
     }
 

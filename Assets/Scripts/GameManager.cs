@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
             {
                 if (countDown <= 0)
                 {
-                    Debug.Log("HAKAI");
+                    portal.anim.speed = 1;
                     Destroy(ray.transform.Find("Charge").gameObject, 1);
                 }
 
@@ -354,7 +354,6 @@ public class GameManager : MonoBehaviour
             case "Pirate":
                 text.text = LayerMask.LayerToName(layer) + "works";
                 stuns[2].SetActive(true);
-
                 break;
             case "Cyber":
                 text.text = LayerMask.LayerToName(layer) + "works";
@@ -372,7 +371,7 @@ public class GameManager : MonoBehaviour
         while (shake > 0)
         {
             if (Input.acceleration.sqrMagnitude > 5f) 
-                shake -= .1f;
+                shake -= 1;
 
             shake -= Time.deltaTime;
             yield return null;

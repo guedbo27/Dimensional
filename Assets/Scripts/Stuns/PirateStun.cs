@@ -50,7 +50,7 @@ public class PirateStun : MonoBehaviour
 
     void ExitStun()
     {
-        StartCoroutine(GameManager.instance.Shooting());
+        GameManager.instance.StartCoroutine(GameManager.instance.Shooting());
         gameObject.SetActive(false);
     }
 }

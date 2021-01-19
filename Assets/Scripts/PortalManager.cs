@@ -20,7 +20,7 @@ public class PortalManager : MonoBehaviour
     public event Action killAll;
     public float spawnRate;
     float lifePoints = 100;
-    Animator anim;
+    public Animator anim;
     //Portal portal;
     [HideInInspector]
     public Image lifeBar;

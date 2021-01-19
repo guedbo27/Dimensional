@@ -141,9 +141,9 @@ public class Enemies : MonoBehaviour
         GetComponent<Collider>().enabled = false;
         StopAllCoroutines();
         anim.SetBool("Stop", true);
-        Instantiate(drops[0], transform.position + new Vector3(Random.Range(1f, 3f), Random.Range(.1f, .3f), 0), Quaternion.identity,transform.parent).layer = gameObject.layer;
+        Instantiate(drops[0], transform.position + new Vector3(Random.Range(1f, 3f), Random.Range(.1f, .3f), 0), Quaternion.identity,transform.parent.parent).layer = gameObject.layer;
         anim.SetFloat("Speed", 0);
-        if (Random.Range(1, 5) == 3) Instantiate(drops[1], transform.position + new Vector3(Random.Range(1f, 3f), Random.Range(.1f, .3f), 0), Quaternion.identity, transform.parent).layer = gameObject.layer;
+        if (Random.Range(1, 5) == 3) Instantiate(drops[1], transform.position + new Vector3(Random.Range(1f, 3f), Random.Range(.1f, .3f), 0), Quaternion.identity, transform.parent.parent).layer = gameObject.layer;
         Destroy(gameObject, anim.GetCurrentAnimatorStateInfo(1).length + 3);
     }
 

@@ -21,7 +21,7 @@ public class IceStun : MonoBehaviour
                 images[cracksCount].SetActive(true);
                 if (cracksCount >= images.Count)
                 {
-                    StartCoroutine(GameManager.instance.Shooting());
+                    GameManager.instance.StartCoroutine(GameManager.instance.Shooting());
                     gameObject.SetActive(false);
                     foreach (GameObject image in images)
                     {
