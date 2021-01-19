@@ -139,7 +139,6 @@ public class Laser : MonoBehaviour
                     lr.SetPosition(1, hit.point);
                     if (hit.transform.CompareTag("Enemy"))
                     {
-                        GameManager.instance.text.text = "wadafoc " + dmg;
                         hit.transform.GetComponent<Enemies>().RecieveDamage(dmg);
                     }
                 }
