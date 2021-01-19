@@ -2803,7 +2803,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.21306516, g: 0.56740826, b: 0.7169812, a: 0}
+  m_BackGroundColor: {r: 0.32079923, g: 0.41483352, b: 0.764151, a: 1}
   m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2816,8 +2816,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0.1
+  far clip plane: 300
   field of view: 26.991467
   orthographic: 0
   orthographic size: 5
