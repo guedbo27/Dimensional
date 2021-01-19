@@ -366,14 +366,16 @@ public class GameManager : MonoBehaviour
         stuns[1].SetActive(true);
 
         float shake = 10;
+        Vector3 oldPos = transform.position;
 
         while (shake > 0)
         {
-            if (Input.acceleration.sqrMagnitude > .0001f) 
+            if (Vector3.Distance(transform.position, oldPos) > .1f) 
                 shake -= 1;
 
+            oldPos = transform.position;
             shake -= Time.deltaTime;
-            yield return new WaitForFixedUpdate();
+            yield return null;
         }
 
         transform.GetChild(2).GetChild(1).gameObject.SetActive(false);
