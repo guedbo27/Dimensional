@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         MainCamera camera = FindObjectOfType<MainCamera>();
         Transform location = transform.GetChild(1);
         int _a = 4;
-        UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+        //UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
         while (_a > 0)
         {
             if (Input.touchCount > 0)
