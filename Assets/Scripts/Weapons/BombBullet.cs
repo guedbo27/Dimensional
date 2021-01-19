@@ -20,7 +20,7 @@ public class BombBullet : Munition
     private void OnDestroy()
     {
         if (isQuit) return;
-        Instantiate(explosion, transform.position, Quaternion.identity);
+        Instantiate(explosion, transform.position, Quaternion.identity).layer = gameObject.layer;
         Collider[] coll = Physics.OverlapSphere(transform.position, 5, gameObject.layer);
 
         foreach (Collider col in coll)

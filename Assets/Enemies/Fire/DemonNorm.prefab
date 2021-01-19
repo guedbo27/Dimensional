@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 3
-  dmg: 2
+  dmg: 0.5
   point:
   - {fileID: 0}
   - {fileID: 0}

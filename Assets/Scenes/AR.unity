@@ -345,7 +345,6 @@ MonoBehaviour:
   - {fileID: 1690643846}
   - {fileID: 1956554185}
   - {fileID: 490871099}
-  spawnRate: 30
   anim: {fileID: 0}
   lifeBar: {fileID: 0}
 --- !u!1 &35757605
@@ -4324,7 +4323,6 @@ MonoBehaviour:
   - {fileID: 372223362}
   - {fileID: 741612838}
   - {fileID: 914947699}
-  spawnRate: 10
   anim: {fileID: 0}
   lifeBar: {fileID: 0}
 --- !u!1 &762786553
@@ -13011,7 +13009,6 @@ MonoBehaviour:
   - {fileID: 331111867}
   - {fileID: 1221100660}
   - {fileID: 1333262845}
-  spawnRate: 0
   anim: {fileID: 0}
   lifeBar: {fileID: 0}
 --- !u!1001 &1509490933
@@ -14079,7 +14076,7 @@ MonoBehaviour:
   manag: {fileID: 0}
   type: 1
   recoil: 2
-  baseDmg: 1
+  baseDmg: 2
   upgradeLvl: 0
   bullet: {fileID: 5200443367798295039, guid: da73161e359059c4ca9d1e3f957a1924, type: 3}
 --- !u!1 &1658403786
@@ -15108,7 +15105,6 @@ MonoBehaviour:
   - {fileID: 1343552988}
   - {fileID: 371727532}
   - {fileID: 1407601329}
-  spawnRate: 30
   anim: {fileID: 0}
   lifeBar: {fileID: 0}
 --- !u!1 &1836869469

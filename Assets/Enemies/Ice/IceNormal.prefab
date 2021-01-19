@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 3
-  dmg: 2
+  dmg: 0.5
   point:
   - {fileID: 0}
   - {fileID: 0}
@@ -261,10 +261,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.2254307
-  m_Height: 4.0193353
+  m_Radius: 0.44461823
+  m_Height: 2.5097198
   m_Direction: 1
-  m_Center: {x: -0.16000009, y: 2.0072834, z: -0.098994255}
+  m_Center: {x: -0.1600002, y: 1.7445769, z: 0.0098872185}
 --- !u!95 &6798351255622807007
 Animator:
   serializedVersion: 3
