@@ -25,14 +25,18 @@ public class PortalManager : MonoBehaviour
     [HideInInspector]
     public Image lifeBar;
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        anim.speed = 0;
+    }
+
     void SpawnEnemy(Routes route)
     {
         if (route.spawn.childCount > 0) return;
         GameObject enemy = Instantiate(enemies[(int)route.enemyType], route.spawn);
         enemy.GetComponent<Animator>().runtimeAnimatorController = route.animator;
-        GetComponent<Enemies>().point = shootPoints;
-        anim = GetComponent<Animator>();
-        anim.speed = 0;
+        enemy.GetComponent<Enemies>().point = shootPoints;
     }
 
     public IEnumerator EnemiesSpawn()

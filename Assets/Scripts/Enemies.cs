@@ -26,7 +26,7 @@ public class Enemies : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        manag = transform.parent.GetComponent<PortalManager>();
+        manag = transform.parent.parent.GetComponent<PortalManager>();
         manag.killAll += Die;
         gameObject.tag = "Enemy";
         StartCoroutine(RotateToCamera());
@@ -41,14 +41,17 @@ public class Enemies : MonoBehaviour
 
         while(Target == Vector3.zero)
         {
-           
-            counting--;
+            counting -= Time.deltaTime;
             if (counting <= 0)
             {
                 temp = Vector3.Lerp(point[0].position, point[1].position, Random.Range(0f, 1f));
                 temp2 = Vector3.Lerp(point[2].position, point[3].position, Random.Range(0f, 1f));
                 Target = Vector3.Lerp(temp, temp2, Random.Range(0f, 1f));
-                if (Vector3.Distance(transform.position, Target) < 10) yield break;
+                if (Vector3.Distance(transform.position, Target) < 10)
+                {
+                    yield break;
+                }
+                
             }
             yield return null;
         }
@@ -65,7 +68,7 @@ public class Enemies : MonoBehaviour
             _direction = (Target - transform.position).normalized;
 
             //create the rotation we need to be in to look at the target
-            _lookRotation = Quaternion.LookRotation(_direction);
+            _lookRotation = Quaternion.LookRotation(_direction) * Quaternion.Euler(0, -90, 0);
 
             //rotate us over time according to speed until we are in the required rotation
             rotator.rotation = Quaternion.Slerp(rotator.rotation, _lookRotation, time);
@@ -83,7 +86,7 @@ public class Enemies : MonoBehaviour
             _direction = (Target - transform.position).normalized;
 
             //create the rotation we need to be in to look at the target
-            _lookRotation = Quaternion.LookRotation(_direction);
+            _lookRotation = Quaternion.LookRotation(_direction) * Quaternion.Euler(0, -90, 0);
 
             //rotate us over time according to speed until we are in the required rotation
             rotator.rotation = Quaternion.Slerp(rotator.rotation, _lookRotation, time);
