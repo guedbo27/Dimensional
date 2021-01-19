@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public Text text;
+    public GameObject[] stuns = new GameObject[0];
     public int toWin;
     int winGot = 0;
     //Prefab de un portal
@@ -342,20 +343,20 @@ public class GameManager : MonoBehaviour
         switch (coso.ToString())
         {
             case "Ice":
-                transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
                 text.text = LayerMask.LayerToName(layer) + "works";
+                transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
                 break;
             case "Fire":
                 StartCoroutine(OnFire());
                 text.text = LayerMask.LayerToName(layer) + "works";
                 break;
             case "Pirate":
-                transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
                 text.text = LayerMask.LayerToName(layer) + "works";
+                transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
                 break;
             case "Cyber":
-                transform.GetChild(2).GetChild(3).gameObject.SetActive(true);
                 text.text = LayerMask.LayerToName(layer) + "works";
+                transform.GetChild(2).GetChild(3).gameObject.SetActive(true);
                 break;
         }
     }
