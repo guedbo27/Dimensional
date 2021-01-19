@@ -326,7 +326,7 @@ public class GameManager : MonoBehaviour
 
     public void Stun(LayerMask layer)
     {
-        //if (shoot == null && suck == null) return;
+        if (shoot == null && suck == null) return;
 
         if (shoot != null) { StopCoroutine(shoot); shoot = null; }
         if (particle != null)
@@ -336,8 +336,8 @@ public class GameManager : MonoBehaviour
         }
         if (suck != null) { StopCoroutine(suck); suck = null; }
     
-    Debug.Log("Impact!");
         text.text = LayerMask.LayerToName(layer);
+
         switch (layer)
         {
             case 8:
