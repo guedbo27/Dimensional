@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         Transform location = transform.GetChild(1);
         int _a = 4;
 
-        while(Input.touchCount < 0)
+        while(Input.touchCount <= 0)
         {
             yield return null;
         }
