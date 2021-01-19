@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(BeginGame());
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         weaponAnim.transform.parent.position = Vector3.Lerp(weaponAnim.transform.parent.position, transform.position + (transform.GetChild(0).position - transform.position), .8f);
         weaponAnim.transform.parent.rotation = transform.GetChild(0).rotation;
@@ -77,7 +77,6 @@ public class GameManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Portal _portal = Instantiate(placePortal, location.position, location.rotation).GetComponent<Portal>();
-                _portal.transform.Rotate(Vector3.right * 90);
                 _portal.linkedPortal = exitPortals[_a - 1];
                 camera.portals.Add(_portal);
                 exitPortals[_a - 1].linkedPortal = _portal;
