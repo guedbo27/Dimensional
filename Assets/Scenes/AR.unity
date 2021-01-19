@@ -12638,7 +12638,7 @@ MonoBehaviour:
   toWin: 0
   placePortal: {fileID: 2677767852324204176, guid: bbb52421304015a4c908affaa970d8a7,
     type: 3}
-  suckGun: {fileID: 543450652941989796}
+  suckGun: {fileID: 1221514559}
   exitPortals:
   - {fileID: 2120932069}
   - {fileID: 2023983132}
