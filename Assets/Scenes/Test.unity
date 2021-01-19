@@ -700,6 +700,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PosteHielo
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3c28a11b8af53864caeb2ea5c356993e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c28a11b8af53864caeb2ea5c356993e, type: 3}
 --- !u!4 &71784355 stripped
@@ -1037,6 +1042,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CuerdaHielo
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d93a5b509bc54b447b5fff77ac13663f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d93a5b509bc54b447b5fff77ac13663f, type: 3}
@@ -1426,6 +1436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hielo
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9238b11abe527d04eb65bf5883ec00ac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9238b11abe527d04eb65bf5883ec00ac, type: 3}
@@ -8738,6 +8753,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PiedraHielo2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e9ecc4008658d741838f1ac80389f5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e9ecc4008658d741838f1ac80389f5c, type: 3}
 --- !u!4 &925807111 stripped
@@ -9293,6 +9313,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PiedrasHielo1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4aeb832e237cad34c9003e2f7dc90c35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aeb832e237cad34c9003e2f7dc90c35, type: 3}
@@ -11103,6 +11128,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PosteHielo (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3c28a11b8af53864caeb2ea5c356993e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c28a11b8af53864caeb2ea5c356993e, type: 3}
 --- !u!4 &1388635032 stripped
@@ -11447,6 +11477,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SueloHielo
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a482d410eb936424883a8d4797320ebd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a482d410eb936424883a8d4797320ebd, type: 3}
 --- !u!4 &1442037948 stripped
@@ -11760,6 +11795,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PosteHielo (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3c28a11b8af53864caeb2ea5c356993e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c28a11b8af53864caeb2ea5c356993e, type: 3}
@@ -14183,6 +14223,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CuerdaHielo (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d93a5b509bc54b447b5fff77ac13663f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d93a5b509bc54b447b5fff77ac13663f, type: 3}
 --- !u!4 &2023525288 stripped
@@ -14581,6 +14626,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PosteHielo (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3c28a11b8af53864caeb2ea5c356993e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c28a11b8af53864caeb2ea5c356993e, type: 3}
