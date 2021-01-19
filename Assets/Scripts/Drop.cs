@@ -25,7 +25,6 @@ public class Drop : MonoBehaviour
     {
         if (mask == gameObject.layer)
         {
-            GameManager.instance.text.text = "GoingTo";
             transform.position += ((target.position + (Vector3.up * .5f)) - transform.position) * .01f;
         }
     }

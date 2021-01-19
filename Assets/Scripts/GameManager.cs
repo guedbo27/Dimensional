@@ -232,7 +232,6 @@ public class GameManager : MonoBehaviour
                 {
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2)), out checkRay, 20, 1 << 12))
                     {
-                        text.text = "Impacting";
                         if (ray.transform != checkRay.transform)
                         {
                             isDetected = false;

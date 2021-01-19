@@ -138,6 +138,7 @@ public class Enemies : MonoBehaviour
 
     public void Die()
     {
+        manag.killAll -= Die;
         GetComponent<Collider>().enabled = false;
         StopAllCoroutines();
         anim.SetBool("Stop", true);

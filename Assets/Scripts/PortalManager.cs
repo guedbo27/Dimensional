@@ -77,7 +77,7 @@ public class PortalManager : MonoBehaviour
 
     public void Ultimate()
     {
-        killAll();
+        killAll.Invoke();
     }
 
     void DestroyPortal()

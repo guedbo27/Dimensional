@@ -16,9 +16,9 @@ public class IceStun : MonoBehaviour
         int cracksCount = 0;
         while(true)
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            if (Input.touchCount > 0)
             {
-                images[cracksCount].SetActive(true);
+                yield return new WaitForSeconds(.5f);
                 if (cracksCount >= images.Count)
                 {
                     GameManager.instance.StartCoroutine(GameManager.instance.Shooting());
@@ -29,7 +29,11 @@ public class IceStun : MonoBehaviour
                     }
                     yield break;
                 }
-                else cracksCount++;
+                else
+                {
+                    images[cracksCount].SetActive(true);
+                    cracksCount++;
+                }
             }
 
             yield return null;
