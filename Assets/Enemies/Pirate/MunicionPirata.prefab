@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2913251684060010482}
   - component: {fileID: 5062007644390809325}
   - component: {fileID: 6498499781769170309}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 5249600907080486433}
   - component: {fileID: 4033222305137479074}
   - component: {fileID: 2934795548149661063}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 4222879719792168076}
   - component: {fileID: 1774874705097746247}
   - component: {fileID: 264837803547543112}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 1304282389733873710}
   - component: {fileID: 7232044641356780893}
   - component: {fileID: 8586606466630119364}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MunicionPirata
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 6073527263264675166}
   - component: {fileID: 2953127556478524467}
   - component: {fileID: 7831680528091253024}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 8553400057986005830}
   - component: {fileID: 1175589385202599031}
   - component: {fileID: 2406186870066684445}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 6831524844849378945}
   - component: {fileID: 1110064254402766976}
   - component: {fileID: 8967803451302199212}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 7887054172944852813}
   - component: {fileID: 5728416713236777101}
   - component: {fileID: 7024303451628265588}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
