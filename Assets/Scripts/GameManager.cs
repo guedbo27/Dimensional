@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
             {
                 Portal _portal = Instantiate(placePortal, location.position, location.rotation).GetComponent<Portal>();
                 //_portal.transform.Rotate(Vector3.up * -180);
+                text.text = _portal.transform.localScale.x.ToString() + "," + _portal.transform.localScale.y.ToString() + "," + _portal.transform.localScale.z.ToString();
                 _portal.linkedPortal = exitPortals[_a - 1];
                 camera.portals.Add(_portal);
                 exitPortals[_a - 1].linkedPortal = _portal;
