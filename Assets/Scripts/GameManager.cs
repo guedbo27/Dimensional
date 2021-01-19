@@ -370,7 +370,7 @@ public class GameManager : MonoBehaviour
 
         while (shake > 0)
         {
-            if (Vector3.Distance(transform.position, oldPos) > .1f) 
+            if (Vector3.Distance(transform.position, oldPos) > .001f) 
                 shake -= 1;
 
             oldPos = transform.position;
