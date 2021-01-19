@@ -7,8 +7,6 @@ public class EnemyShoot : MonoBehaviour
     public float speed;
     LayerMask layer;
 
-    //como enviamos lo de bloquear?
-
     private void Start()
     {
         Destroy(gameObject, 7);

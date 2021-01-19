@@ -120,7 +120,8 @@ public class Enemies : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(shootBullet, shootPoint.position, shootPoint.rotation);
+        GameObject obj = Instantiate(shootBullet, shootPoint.position, shootPoint.rotation);
+        obj.layer = gameObject.layer;
     }
 
     public void RecieveDamage(float dmg)
