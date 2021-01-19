@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         weaponAnim.transform.parent.rotation = transform.GetChild(0).rotation;
     }
 
-    string variableName;
+    string variableName = "test";
     private void OnGUI()
     {
         GUI.Label(new Rect(0, 0, 100, 100), variableName);
@@ -87,19 +87,13 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && hits.Count > 0)
             {
-                try
-                {
-                    Portal _portal = Instantiate(placePortal, hits[0].pose.position, hits[0].pose.rotation).GetComponent<Portal>();
-                    _portal.linkedPortal = exitPortals[_a - 1];
-                    camera.portals.Add(_portal);
-                    exitPortals[_a - 1].linkedPortal = _portal;
-                    exitPortals[_a - 1].transform.parent.GetComponent<PortalManager>().lifeBar = _portal.transform.GetChild(2).GetChild(0).GetComponent<Image>();
-                    _a--;
-                }
-                catch (Exception e)
-                {
-                    variableName = e.ToString();
-                }
+                 Portal _portal = Instantiate(placePortal, hits[0].pose.position, hits[0].pose.rotation).GetComponent<Portal>();
+                 _portal.linkedPortal = exitPortals[_a - 1];
+                 camera.portals.Add(_portal);
+                 exitPortals[_a - 1].linkedPortal = _portal;
+                 exitPortals[_a - 1].transform.parent.GetComponent<PortalManager>().lifeBar = _portal.transform.GetChild(2).GetChild(0).GetComponent<Image>();
+                 _a--;
+                variableName = hits[0].pose.position.x + "," + hits[0].pose.position.y + "," + hits[0].pose.position.z;
                 yield return new WaitForSeconds(.5f);
             }
             yield return null;
