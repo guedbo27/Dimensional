@@ -191,7 +191,7 @@ public class Portal : MonoBehaviour {
             if (viewTexture != null) {
                 viewTexture.Release ();
             }
-            viewTexture = new RenderTexture (Screen.width, Screen.height, 16);
+            viewTexture = new RenderTexture (Screen.width, Screen.height, 24);
             // Render the view from the portal camera to the view texture
             portalCam.targetTexture = viewTexture;
             // Display the view texture on the screen of the linked portal
