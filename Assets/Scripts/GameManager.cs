@@ -69,13 +69,14 @@ public class GameManager : MonoBehaviour
     IEnumerator BeginGame()
     {
         ARRaycastManager arOrigin;
-        List<ARRaycastHit> hits = new List<ARRaycastHit>();
+
         arOrigin = FindObjectOfType<ARRaycastManager>();
         MainCamera camera = GetComponent<MainCamera>();
         Transform location = camera.transform.GetChild(1);
         int _a = 4;
         while (_a > 0)
         {
+            List<ARRaycastHit> hits = new List<ARRaycastHit>();
             var ScreenCenter = Camera.main.ViewportToScreenPoint(new Vector3(.5f,.5f));
             arOrigin.Raycast(ScreenCenter, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
             text.text = hits.Count.ToString();
