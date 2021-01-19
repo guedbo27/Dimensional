@@ -326,7 +326,6 @@ public class GameManager : MonoBehaviour
 
     public void Stun(LayerMask layer)
     {
-        return;
         if (shoot == null && suck == null) return;
 
         if (shoot != null) { StopCoroutine(shoot); shoot = null; }
@@ -339,24 +338,25 @@ public class GameManager : MonoBehaviour
 
         text.text = "Oh no";
 
-        switch (LayerMask.LayerToName(layer))
+        if (layer == 1 << 8)
         {
-            case "Ice":
-                transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
-                text.text = LayerMask.LayerToName(layer);
-                break;
-            case "Fire":
-                StartCoroutine(OnFire());
-                text.text = LayerMask.LayerToName(layer);
-                break;
-            case "Pirate":
-                transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
-                text.text = LayerMask.LayerToName(layer);
-                break;
-            case "Cyber":
-                transform.GetChild(2).GetChild(3).gameObject.SetActive(true);
-                text.text = LayerMask.LayerToName(layer);
-                break;
+            transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
+            text.text = LayerMask.LayerToName(layer);
+        }
+        if (layer == 1 << 9)
+        {
+            StartCoroutine(OnFire());
+            text.text = LayerMask.LayerToName(layer);
+        }
+        if (layer == 1 << 10)
+        {
+            transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
+            text.text = LayerMask.LayerToName(layer);
+        }
+        if (layer == 1 << 11)
+        {
+            transform.GetChild(2).GetChild(3).gameObject.SetActive(true);
+            text.text = LayerMask.LayerToName(layer);
         }
     }
 
