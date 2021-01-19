@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
             var ScreenCenter = Camera.current.ViewportToScreenPoint(new Vector3(.5f,.5f));
             arOrigin.Raycast(ScreenCenter, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
 
-            if (Input.GetMouseButtonDown(0) && hits.Count <= 0)
+            if (Input.GetMouseButtonDown(0) && hits.Count > 0)
             {
                 Portal _portal = Instantiate(placePortal, hits[0].pose.position, hits[0].pose.rotation).GetComponent<Portal>();
                 _portal.linkedPortal = exitPortals[_a - 1];
