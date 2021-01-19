@@ -31,7 +31,6 @@ public class Portal : MonoBehaviour {
 
     void LateUpdate () {
         HandleTravellers ();
-        GameManager.instance.text.text = portalCam.farClipPlane.ToString();
     }
 
     void HandleTravellers () {
