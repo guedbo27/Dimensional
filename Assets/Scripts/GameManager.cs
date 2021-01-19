@@ -68,23 +68,14 @@ public class GameManager : MonoBehaviour
     //ColocarPortales
     IEnumerator BeginGame()
     {
-        ARRaycastManager arOrigin;
-
-        arOrigin = FindObjectOfType<ARRaycastManager>();
         MainCamera camera = GetComponent<MainCamera>();
         Transform location = camera.transform.GetChild(1);
         int _a = 4;
         while (_a > 0)
         {
-            List<ARRaycastHit> hits = new List<ARRaycastHit>();
-            var ScreenCenter = Camera.main.ViewportToScreenPoint(new Vector3(.5f,.5f));
-            arOrigin.Raycast(ScreenCenter, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
-            text.text = hits.Count.ToString();
-            if (Input.GetMouseButtonDown(0) && hits.Count > 0)
+            if (Input.GetMouseButtonDown(0))
             {
-                text.text = hits[0].pose.position.x + "," + hits[0].pose.position.y + "," + hits[0].pose.position.z;
-
-                Portal _portal = Instantiate(placePortal, hits[0].pose.position, hits[0].pose.rotation).GetComponent<Portal>();
+                Portal _portal = Instantiate(placePortal, location.position, location.rotation).GetComponent<Portal>();
                 _portal.linkedPortal = exitPortals[_a - 1];
                 camera.portals.Add(_portal);
                 exitPortals[_a - 1].linkedPortal = _portal;
