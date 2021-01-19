@@ -337,25 +337,25 @@ public class GameManager : MonoBehaviour
         if (suck != null) { StopCoroutine(suck); suck = null; }
 
         string coso = LayerMask.LayerToName(layer);
-        text.text = "A"+ coso + " Oh no";
+        text.text = "A" + coso + " Oh no";
 
-        switch (coso)
+        switch (coso.ToString())
         {
             case "Ice":
                 transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
-                text.text = LayerMask.LayerToName(layer);
+                text.text = LayerMask.LayerToName(layer) + "works";
                 break;
             case "Fire":
                 StartCoroutine(OnFire());
-                text.text = LayerMask.LayerToName(layer);
+                text.text = LayerMask.LayerToName(layer) + "works";
                 break;
             case "Pirate":
                 transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
-                text.text = LayerMask.LayerToName(layer);
+                text.text = LayerMask.LayerToName(layer) + "works";
                 break;
             case "Cyber":
                 transform.GetChild(2).GetChild(3).gameObject.SetActive(true);
-                text.text = LayerMask.LayerToName(layer);
+                text.text = LayerMask.LayerToName(layer) + "works";
                 break;
         }
     }
