@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int activePortals = 4;
     public GameObject youLose;
     public GameObject youWin;
+    public GameObject Title;
     //Prefab de un portal
     public GameObject placePortal;
 
@@ -74,6 +75,14 @@ public class GameManager : MonoBehaviour
         MainCamera camera = FindObjectOfType<MainCamera>();
         Transform location = transform.GetChild(1);
         int _a = 4;
+
+        while(Input.touchCount < 0)
+        {
+            yield return null;
+        }
+
+        Title.SetActive(false);
+
         while (_a > 0)
         {
             if (Input.touchCount > 0)

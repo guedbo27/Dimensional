@@ -5083,7 +5083,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.74
 --- !u!1001 &2677767853490789054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5166,6 +5166,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0f258c028a6b50e479d2dd32e16abf18,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a13bb1dc28ce70647866b23f7228db02, type: 2}
     - target: {fileID: -1526509560930016547, guid: 0f258c028a6b50e479d2dd32e16abf18,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

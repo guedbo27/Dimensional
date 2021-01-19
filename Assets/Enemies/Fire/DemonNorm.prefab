@@ -165,7 +165,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   shootPoint: {fileID: 3396477118685862889}
-  shootBullet: {fileID: 4286741986216296160, guid: e0b16a96423bf394dbc6cc2095cfb7d3,
+  shootBullet: {fileID: 4286741986216296160, guid: 29d1779d9825ad84faec0261477de8f9,
     type: 3}
   drops:
   - {fileID: 822151083371437399, guid: 7be8a32440f069a478af5e97996386ca, type: 3}
