@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
 
         while (_a > 0)
         {
-            var ScreenCenter = Camera.current.ViewportToScreenPoint(new Vector3(.5f,.5f));
+            var ScreenCenter = Camera.main.ViewportToScreenPoint(new Vector3(.5f,.5f));
             arOrigin.Raycast(ScreenCenter, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
 
             if (Input.GetMouseButtonDown(0) && hits.Count > 0)
