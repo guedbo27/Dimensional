@@ -65,6 +65,12 @@ public class GameManager : MonoBehaviour
         weaponAnim.transform.parent.rotation = transform.GetChild(0).rotation;
     }
 
+    string variableName;
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(0, 0, 100, 100), variableName);
+    }
+
     //ColocarPortales
     IEnumerator BeginGame()
     {
@@ -74,7 +80,6 @@ public class GameManager : MonoBehaviour
         MainCamera camera = GetComponent<MainCamera>();
         Transform location = camera.transform.GetChild(1);
         int _a = 4;
-
         while (_a > 0)
         {
             var ScreenCenter = Camera.main.ViewportToScreenPoint(new Vector3(.5f,.5f));
@@ -82,17 +87,26 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && hits.Count > 0)
             {
-                Portal _portal = Instantiate(placePortal, hits[0].pose.position, hits[0].pose.rotation).GetComponent<Portal>();
-                _portal.linkedPortal = exitPortals[_a - 1];
-                camera.portals.Add(_portal);
-                exitPortals[_a - 1].linkedPortal = _portal;
-                exitPortals[_a - 1].transform.parent.GetComponent<PortalManager>().lifeBar = _portal.transform.GetChild(2).GetChild(0).GetComponent<Image>();
-                _a--;
+                try
+                {
+                    Portal _portal = Instantiate(placePortal, hits[0].pose.position, hits[0].pose.rotation).GetComponent<Portal>();
+                    _portal.linkedPortal = exitPortals[_a - 1];
+                    camera.portals.Add(_portal);
+                    exitPortals[_a - 1].linkedPortal = _portal;
+                    exitPortals[_a - 1].transform.parent.GetComponent<PortalManager>().lifeBar = _portal.transform.GetChild(2).GetChild(0).GetComponent<Image>();
+                    _a--;
+                }
+                catch (Exception e)
+                {
+                    variableName = e.ToString();
+                }
                 yield return new WaitForSeconds(.5f);
             }
             yield return null;
         }
+
         Destroy(location.gameObject);
+
         foreach (Portal portal in exitPortals)
         {
             StartCoroutine(portal.transform.parent.GetComponent<PortalManager>().EnemiesSpawn());
